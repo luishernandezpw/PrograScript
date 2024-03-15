@@ -1,9 +1,6 @@
 #!/bin/bash
 
-echo "Dime tu nombre"
-read nombre
+read -p "Dime tu nombre: " nombre
+read -p "Cuantos años tienes: " edad
 
-echo "Cuantos años tienes: "
-read edad
-
-echo "Hola que tal $nombre, tu edad es: $edad"
+echo "Hola que tal como estas: $nombre; tu edad es: $edad"
