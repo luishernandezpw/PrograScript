@@ -1,12 +1,23 @@
 #!/bin/bash
+echo "** CALCULADORA BASICA **"
+
 read -p "Dime un numero: " num1
 read -p "Dime otro numero: " num2
 
-suma=$((num1 + num2))
-resta=$((num1 - num2))
-multiplicacion=$((num1 * num2))
-division=$((num1 / num2))
-echo "La suma de $num1 + $num2 = $suma"
-echo "La resta de $num1 - $num2 = $resta"
-echo "La multiplicacion de $num1 * $num2 = $multiplicacion"
-echo "La division de $num1 / $num2 = $division"
+echo "MENU"
+echo "1. Suma"
+echo "2. Resta"
+echo "3. Multiplicacion"
+echo "4. Division"
+read -p "Opcion: " opcion
+respuesta=0
+if [ $opcion = 1 ]; then
+    respuesta=$((num1+num2))
+elif [ $opcion = 2 ]; then
+    respuesta=$((num1-num2))
+elif [ $opcion = 3 ]; then
+    respuesta=$((num1*num2))
+elif [ $opcion = 4 ]; then
+    respuesta=$((num1/num2))
+fi 
+echo "La respuesta es: $respuesta"
