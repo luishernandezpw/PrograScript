@@ -1,15 +1,8 @@
 
-continuar=1
-while [ $continuar -eq 1 ]; do
-    echo "::. MENU .::"
-    echo "1. Mayor 5 numeros."
-    echo "2. Tabla de multiplicar."
-    echo "3. Secuencia Fibonacci"
-    echo "4. Salir"
-    read -p "Opcion: " opcion
 
+select opcion in "Mayor" "Tabla" "Fibonacci" "Salir"; do
     case $opcion in
-        1)
+        "Mayor")
             echo "Mayor de 5 Numeros"
             mayor=0
             for i in $(seq 1 5); do
@@ -20,13 +13,13 @@ while [ $continuar -eq 1 ]; do
             done
             echo "El numero mayor es: $mayor"
             ;;
-        2)
+        "Tabla")
             read -p "Tabla de multiplicar: " ntabla
             for i in $(seq 1 10); do
                 echo "$ntabla x $i = $(($ntabla*$i))"
             done
             ;;
-        3)
+        "Fibonacci")
             echo "Fibonacci"
             a=0
             b=1
@@ -38,6 +31,9 @@ while [ $continuar -eq 1 ]; do
                 a=$c
             done
             ;;
-        4) continuar=2
+        "Salir")
+            break
+            ;;
+        *) echo "Opcion no valida";;
     esac
 done
