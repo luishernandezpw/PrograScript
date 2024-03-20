@@ -1,8 +1,13 @@
-read -p "Num 1: " num1
-read -p "Num 2: " num2
 
-respuesta=$((num1+num2))
-echo "La suma es: $respuesta"
-
-resp=$(expr $num1 + $num2)
-echo "Respuesta: $resp"
+read -p "Edad: " edad
+if [ $edad -le 2 ]; then
+    echo "Eres un bebe"
+elif [ $edad -le 12 ]; then
+    echo "Eres un niño"
+elif [ $edad -le 18 ]; then
+    echo "Eres un adolescente"
+elif [ $edad -le 65 ]; then
+    echo "Eres un adulto, tienes responsabilidades"
+else
+    echo "Larga vida"
+fi
