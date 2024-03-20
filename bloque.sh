@@ -4,7 +4,8 @@ while [ $continuar -eq 1 ]; do
     echo "::. MENU .::"
     echo "1. Mayor 5 numeros."
     echo "2. Tabla de multiplicar."
-    echo "3. Salir"
+    echo "3. Secuencia Fibonacci"
+    echo "4. Salir"
     read -p "Opcion: " opcion
 
     case $opcion in
@@ -25,6 +26,18 @@ while [ $continuar -eq 1 ]; do
                 echo "$ntabla x $i = $(($ntabla*$i))"
             done
             ;;
-        3) continuar=2
+        3)
+            echo "Fibonacci"
+            a=0
+            b=1
+            c=1
+            while [ $c -le 1000 ]; do
+                c=$(($a+$b))
+                echo "$a+$b=$c"
+                b=$a
+                a=$c
+            done
+            ;;
+        4) continuar=2
     esac
 done
