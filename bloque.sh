@@ -1,5 +1,5 @@
 
-read -p "usuario: " user
-read -s -p "password: " pass
+#echo "Hola, $1; tu edad es: $2; estudias en: $3"
 
-echo "Tu usuario es: $user; y la clave es: $pass"
+suma=$(($1+$2))
+echo "La suma es: $suma"
