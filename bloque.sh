@@ -1,5 +1,17 @@
 
-#echo "Hola, $1; tu edad es: $2; estudias en: $3"
+nombre="Luis Hernandez"
+printf "Hola %s; \nBienvenido a Programacion de Script \n" "$nombre"
 
-suma=$(($1+$2))
-echo "La suma es: $suma"
+echo -e "Hola \e[1;31m$nombre\e[0m; bienvenido a \e[1;33mProgramacion de Script\e[0m"
+
+echo "
+Hola que tal, 
+estas son muchas lineas
+usando echo
+"
+
+cat <<EOM
+Hola que tal 
+esto son muchas lineas
+con salto de linea
+EOM
