@@ -1,30 +1,25 @@
+#read -p "Num 1: " num1
+#read -p "Num 2: " num2
 
-filename="archivo.txt"
-#cat "$filename"
+#if [[ "$num1" =~ ^[0-9]+$ && "$num2" =~ ^[0-9]+$ ]]; then
+#    suma=$((num1+num2))
+#    echo "La suma es: $suma"
+#else
+#    echo "Los numeros NO son validos"
+#fi
 
-#leer el archivo linea por linea
+#manejar numeros decimales
 
-#while IFS= read -r linea
-#do
-#    echo "Linea leida: $linea"
-#done < "$filename"
+#guardar la configuracion local
+local_config=$(locale)
 
-grep -v "Script" "$filename" #filtrar la linea que contenga la palabra "Script"
-sed -i '/Script/g' "$filename" #remover la linea que contenga la palabra "Script"
+#cambiar temporalmente la configuracion a una que utilice numeros decimales.
+export LC_NUMERIC="en_US.UTF-8"
+read -p "Num 1: " num1
+read -p "Num 2: " num2
 
-echo "Hola chicos" > "$filename" #reemplaza todo el contenido del archivo por "Hola chicos"
-echo "que tal, les gusta la programacion con script bash" >> "$filename" #agrega una nueva linea al final del archivo
+suma=$(echo "$num1 + $num2" | bc) #realizar operaciones con decimales
+echo "La suma es: $suma"
 
-echo "
-    Esto es el uso de varias lineas
-    de texto a un archivo.
-    Reemplazando todo el contenido.
-" > "$filename" #reemplaza todo el contenido del archivo.
-
-archivo="miarchivo.txt"
-if [ -e "$archivo" ]; then
-    contenido=$(cat "$archivo")
-    echo "el contenido del archivo es: $contenido"
-else
-    echo "$archivo no existe"
-fi
+resta=$(echo "$num1 - $num2" | bc)
+echo "La resta es: $resta"
