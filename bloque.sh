@@ -1,17 +1,30 @@
 
-nombre="Luis Hernandez"
-printf "Hola %s; \nBienvenido a Programacion de Script \n" "$nombre"
+filename="archivo.txt"
+#cat "$filename"
 
-echo -e "Hola \e[1;31m$nombre\e[0m; bienvenido a \e[1;33mProgramacion de Script\e[0m"
+#leer el archivo linea por linea
+
+#while IFS= read -r linea
+#do
+#    echo "Linea leida: $linea"
+#done < "$filename"
+
+grep -v "Script" "$filename" #filtrar la linea que contenga la palabra "Script"
+sed -i '/Script/g' "$filename" #remover la linea que contenga la palabra "Script"
+
+echo "Hola chicos" > "$filename" #reemplaza todo el contenido del archivo por "Hola chicos"
+echo "que tal, les gusta la programacion con script bash" >> "$filename" #agrega una nueva linea al final del archivo
 
 echo "
-Hola que tal, 
-estas son muchas lineas
-usando echo
-"
+    Esto es el uso de varias lineas
+    de texto a un archivo.
+    Reemplazando todo el contenido.
+" > "$filename" #reemplaza todo el contenido del archivo.
 
-cat <<EOM
-Hola que tal 
-esto son muchas lineas
-con salto de linea
-EOM
+archivo="miarchivo.txt"
+if [ -e "$archivo" ]; then
+    contenido=$(cat "$archivo")
+    echo "el contenido del archivo es: $contenido"
+else
+    echo "$archivo no existe"
+fi

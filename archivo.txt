@@ -1,0 +1,5 @@
+
+    Esto es el uso de varias lineas
+    de texto a un archivo.
+    Reemplazando todo el contenido.
+
